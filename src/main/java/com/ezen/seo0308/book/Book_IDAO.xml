@@ -1,0 +1,43 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ezen.seo0308.book.Service_Book">
+	<insert id="insert">
+		insert into BOOK0304(BNUM,BNAME,BWRITER,BDATE,BCONTENT,BIMAGE,BPRICE)
+		values(BOOKINDEX_SEQ.nextval,#{param1},#{param2},#{param3},#{param4},#{param5},#{param6})
+	</insert>
+	<select id="print" resultType="com.ezen.seo0308.book.Book_DTO">
+		SELECT * FROM book0304
+	</select>
+	<select id="deteil" resultType="com.ezen.seo0308.book.Book_DTO">
+		SELECT * FROM book0304 where bnum = #{param1}
+	</select>
+	<update id="count">
+		update book0304 set BCOUNT = BCOUNT +1 where bnum = #{param1}
+	</update>
+	<delete id="delete">
+		delete FROM book0304 where bnum = #{param1}
+	</delete>
+	<update id="modify">
+		update book0304 set BNAME = #{param2},BWRITER = #{param3},BDATE = #{param4},
+		BCONTENT = #{param5}, BIMAGE = #{param6}, BPRICE = #{param7}
+		 where bnum = #{param1}
+	</update>
+	<!-- 페이징 처리에서 전체게시판 수 구하기 -->
+	<select id="total" resultType="int">
+		select count(*) from book0304
+	</select>
+	<select id="bookpage" resultType="com.ezen.seo0308.book.Book_DTO">
+		SELECT * from (
+		SELECT rownum rn, A.* from(
+		SELECT * from book0304 order by BNUM DESC) A)
+		where rn between #{start} and #{end}
+	</select>
+	<select id="weiterserach" resultType="com.ezen.seo0308.book.Book_DTO">
+		SELECT * FROM book0304 where BWRITER like '%'||#{param1}||'%'
+	</select>
+	<select id="bookserach" resultType="com.ezen.seo0308.book.Book_DTO">
+		SELECT * FROM book0304 where BNAME like '%'||#{param1}||'%'
+	</select>
+</mapper>

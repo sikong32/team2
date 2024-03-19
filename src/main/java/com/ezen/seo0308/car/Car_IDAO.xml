@@ -1,0 +1,41 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ezen.seo0308.car.Car_service">
+<insert id="input">
+	insert into CAR0312 VALUES(CARSAWONNUM_sql.nextval,#{param1},#{param2},#{param3},#{param4})
+</insert>
+<select id="out" resultType="com.ezen.seo0308.car.Car_DTO">
+	select * from CAR0312
+</select>
+<select id="zhongliang" resultType="int">
+	select count(*) from car0312
+</select>
+<select id="carpage" resultType="com.ezen.seo0308.car.Car_DTO">
+	select * from(
+	select rownum rn, A.*from(
+	select * from car0312 order by SAWONNUM desc) A)
+	where rn between #{start} and #{end}
+</select>
+<!-- 페이징처리에서 판매액 내림차순 구하기-->
+<!--    <select id="page4" resultType="com.ezen.koh10.store.StoreDTO"> -->
+<!--       select * from (  -->
+<!--          select rownum rn,A.* from(   -->
+<!--             select snum,place,carname,su,price,su*price as totprice  -->
+<!--             from store0312     -->
+<!--             group by snum,place,carname,su,price -->
+<!--                order by sum(su*price) desc)A)  -->
+<!--          where rn between #{start} AND #{end}  -->
+<!--    </select> -->
+<select id="out3" resultType="com.ezen.seo0308.car.Car_DTO">
+	select jijum, sum(CARSU+CARPRICE) as tot from CAR0312 GROUP BY jijum
+</select>
+<select id="out4" resultType="com.ezen.seo0308.car.Car_DTO">
+	select carname, sum(CARSU+CARPRICE) as tot from CAR0312 GROUP BY carname
+</select>
+<select id="out5" resultType="com.ezen.seo0308.car.Car_DTO">
+	select sawonnum,jijum,carsu,carprice,carsu*carprice AS tot from car0312 
+	where carsu*carprice=(SELECT MAX(carsu*carprice)FROM car0312)
+</select>
+</mapper>

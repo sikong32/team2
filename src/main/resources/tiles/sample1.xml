@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="baseLayout"
+		template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="top" value="/WEB-INF/views/top.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer"
+			value="/WEB-INF/views/footer.jsp" />
+	</definition>
+
+	<definition name="main" extends="baseLayout">
+		<put-attribute name="title" value="메인화면" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/main.jsp" />
+	</definition>
+	<definition name="id_input" extends="baseLayout">
+		<put-attribute name="title" value="메인화면" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/id/id_input.jsp" />
+	</definition>
+		<definition name="id_out" extends="baseLayout">
+		<put-attribute name="title" value="메인화면" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/id/id_out.jsp" />
+	</definition>
+	<definition name="id_search" extends="baseLayout">
+		<put-attribute name="title" value="메인화면" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/id/id_search.jsp" /> 
+	</definition>
+	<definition name="id_delete" extends="baseLayout">
+		<put-attribute name="title" value="메인화면" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/id/id_delete.jsp" /> 
+	</definition>
+	<definition name="id_mdify" extends="baseLayout">
+		<put-attribute name="title" value="메인화면" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/id/id_mdify.jsp" /> 
+	</definition>
+	<definition name="id_login" extends="baseLayout">
+		<put-attribute name="title" value="메인화면" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/id/id_login.jsp" /> 
+	</definition>
+	<definition name="boardinput" extends="baseLayout">
+		<put-attribute name="title" value="메인화면" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/board/boardinput.jsp" /> 
+	</definition>
+	<definition name="boardout" extends="baseLayout">
+		<put-attribute name="title" value="메인화면" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/board/boardout.jsp" /> 
+	</definition>
+	<definition name="boarddetail" extends="baseLayout">
+		<put-attribute name="title" value="메인화면" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/board/boarddetail.jsp" /> 
+	</definition>
+	<definition name="replyview" extends="baseLayout">
+		<put-attribute name="title" value="메인화면" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/board/replyview.jsp" />
+	</definition>
+	<definition name="bookinput" extends="baseLayout">
+		<put-attribute name="title" value="메인화면" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/book/bookinput.jsp" />
+	</definition>
+	<definition name="bookout" extends="baseLayout">
+		<put-attribute name="title" value="메인화면" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/book/bookout.jsp" />
+	</definition>
+	<definition name="bookdeteil" extends="baseLayout">
+		<put-attribute name="title" value="메인화면" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/book/bookdeteil.jsp" />
+	</definition>
+	<definition name="bookmodify" extends="baseLayout">
+		<put-attribute name="title" value="메인화면" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/book/bookmodify.jsp" />
+	</definition>
+	<definition name="booksearch" extends="baseLayout">
+		<put-attribute name="title" value="메인화면" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/book/booksearch.jsp" />
+	</definition>
+	<definition name="car_input" extends="baseLayout">
+		<put-attribute name="title" value="메인화면" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/car/car_input.jsp" />
+	</definition>
+	<definition name="car_out" extends="baseLayout">
+		<put-attribute name="title" value="메인화면" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/car/car_out.jsp" />
+	</definition>
+	<definition name="car_out3" extends="baseLayout">
+		<put-attribute name="title" value="메인화면" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/car/car_out3.jsp" />
+	</definition>
+	<definition name="car_out4" extends="baseLayout">
+		<put-attribute name="title" value="메인화면" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/car/car_out4.jsp" />
+	</definition>
+	<definition name="car_out5" extends="baseLayout">
+		<put-attribute name="title" value="메인화면" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/car/car_out5.jsp" />
+	</definition>
+	<definition name="yuhyo_input" extends="baseLayout">
+		<put-attribute name="title" value="메인화면" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/yuhyo/yuhyo_input.jsp" />
+	</definition>
+	<definition name="yuhyo_out" extends="baseLayout">
+		<put-attribute name="title" value="메인화면" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/yuhyo/yuhyo_out.jsp" />
+	</definition>
+</tiles-definitions>
