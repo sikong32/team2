@@ -1,0 +1,33 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ezen.team2_resultmap.Service">
+	<resultMap type="com.ezen.team2_resultmap.Score_DTO" id="score">
+		<result property="serial" column="serial"/>
+		<result property="kor" column="kor"/>
+		<result property="eng" column="eng"/>
+		<result property="mat" column="mat"/>
+		<result property="tot" column="tot"/>
+	</resultMap>
+	<resultMap type="com.ezen.team2_resultmap.Insa_DTO" id="insa">
+		<result property="serial" column="serial"/>
+		<result property="rank" column="rank"/>
+		<result property="family_pay" column="family_pay"/>
+		<result property="default_pay" column="default_pay"/>
+		<result property="total_pay" column="total_pay"/>
+	</resultMap>
+	<resultMap type="com.ezen.team2_resultmap.Info_DTO" id="info">
+		<result property="serial" column="serial"/>
+		<result property="name" column="name"/>
+		<result property="tel" column="tel"/>
+		<result property="rank" column="rank"/>
+		<collection property="score_dto" ofType="com.ezen.team2_resultmap.Score_DTO" resultMap="score"></collection>
+		<collection property="insa_dto" ofType="com.ezen.team2_resultmap.Insa_DTO" resultMap="insa"></collection>
+	</resultMap>
+	<select id="total" resultMap="info">
+		select info.serial, info.name, info.tel, (score.kor + score.eng + score.mat) as tot, insa.rank, (insa.family_pay + insa.default_pay) total_pay
+		from myinfo_0319 info, score_0319 score, insa_0319 insa
+		where info.serial=score.serial
+		and info.serial=insa.serial
+	</select>
+	
+</mapper>
