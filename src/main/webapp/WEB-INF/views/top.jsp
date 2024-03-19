@@ -40,9 +40,9 @@ nav {
 						<li><a href="id_search">회원검색</a></li>
 					</ul></li>
 				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">게시판<span class="caret"></span></a>
+					data-toggle="dropdown" href="#">게시판2<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="boardinput">게시판입력</a></li>
+						<li><a href="boardinput">게시판입력2</a></li>
 						<li><a href="page">게시판출력</a></li>
 						<li><a href="#">게시판검색</a></li>
 					</ul></li>
