@@ -1,0 +1,39 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ezen.dd0319.Infoservice">
+<resultMap type="com.ezen.dd0319.InsaDTO" id="insa">
+	<result property="id" column="id"/>
+	<result property="revel" column="revel"/>
+	<result property="family" column="family"/>
+	<result property="money" column="money"/>
+</resultMap>
+
+<resultMap type="com.ezen.dd0319.ScoreDTO" id="score">
+	<result property="id" column="id"/>
+	<result property="kor" column="kor"/>
+	<result property="eng" column="eng"/>
+	<result property="mat" column="mat"/>
+</resultMap>
+
+<resultMap type="com.ezen.dd0319.MyinfoDTO" id="info">
+	<result property="tot" column="tot"/>
+	<result property="price" column="price"/>
+	<result property="id" column="id"/>
+	<result property="name" column="name"/>
+	<result property="phone" column="phone"/>
+	<collection property="scoreDTO"
+	ofType="com.ezen.dd0319.ScoreDTO" resultMap="score"></collection>
+	<collection property="insaDTO" 
+	ofType="com.ezen.dd0319.InsaDTO" resultMap="insa"></collection>
+</resultMap>
+
+<select id="print" resultMap="info">
+	select info.id, info.name, info.phone, 
+	score.kor+score.eng+score.mat as tot, insa.revel, insa.family+insa.money as price
+	from myinfo0319 info, score0319 score, insa0319 insa
+	where info.id = score.id and score.id = insa.id
+</select>
+
+</mapper>
